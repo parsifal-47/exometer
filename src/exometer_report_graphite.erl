@@ -118,7 +118,7 @@ key([], Prefix, Prob, DataPoint) ->
 key(APIKey, [], Prob, DataPoint) ->
     [APIKey, $., name(Prob, DataPoint)];
 key(APIKey, Prefix, Prob, DataPoint) ->
-    [APIKey, $., Prefix, $., name(Prob, DataPoint)].
+    [APIKey, $., Prefix, name(Prob, DataPoint)].
 
 %% Add probe and datapoint within probe
 name(Probe, DataPoint) ->
