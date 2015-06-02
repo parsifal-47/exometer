@@ -75,6 +75,7 @@ exometer_report(Probe, DataPoint, _Extra, Value, #st{socket = Sock,
                                                     prefix = Prefix} = St) ->
     Line = [key(APIKey, Prefix, Probe, DataPoint), " ",
             value(Value), $\n],
+    lager:info("Send line is: ~p", [Line]),
     case gen_tcp:send(Sock, Line) of
         ok ->
             {ok, St};
