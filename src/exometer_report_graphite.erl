@@ -74,7 +74,7 @@ exometer_report(Probe, DataPoint, _Extra, Value, #st{socket = Sock,
                                                     api_key = APIKey,
                                                     prefix = Prefix} = St) ->
     Line = [key(APIKey, Prefix, Probe, DataPoint), " ",
-            value(Value), " ", timestamp(), $\n],
+            value(Value), $\n],
     case gen_tcp:send(Sock, Line) of
         ok ->
             {ok, St};
